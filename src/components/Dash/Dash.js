@@ -9,6 +9,7 @@ export default class Dash extends Component {
     this.state = {
       houses: []
     }
+    this.deleteHouse = this.deleteHouse.bind(this)
   }
 
   componentDidMount() {
@@ -24,7 +25,7 @@ export default class Dash extends Component {
       .catch(err => console.log(err))
   }
 
-  deleteHouse = id => {
+  deleteHouse(id) {
     axios
       .delete(`/api/houses/${id}`)
       .then(res => this.getHouses())
@@ -36,7 +37,7 @@ export default class Dash extends Component {
       <div className='panel dash'>
         <div className="sub-header">
           <h2>Dashboard</h2>
-          <Link to='/wizard'>
+          <Link to='/wizard/step1'>
             <button>Add New Property</button>
           </Link>
         </div>

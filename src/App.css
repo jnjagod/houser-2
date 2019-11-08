@@ -13,7 +13,6 @@ body {
 
 .App {
   padding-top: 75px;
-  min-height: 100vh;
 }
 
 header {
@@ -26,13 +25,13 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 99;
 }
 
 .panel {
   width: 50vw;
   background: #e5f4ec;
   text-align: center;
-  height: 100vh;
   margin-left: 25vw;
 }
 
@@ -55,4 +54,19 @@ input {
 .prop-container {
   border-top: 1px solid black;
   margin: 0 20px 10px;
+}
+
+.x {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.house {
+  position: relative;
+  background: #DEDEDE;
+  padding: 1px;
+  margin: 15px 0;
 }

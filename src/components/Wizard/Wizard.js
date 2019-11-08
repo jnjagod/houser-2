@@ -1,58 +1,27 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { Link, Route } from 'react-router-dom'
+import Step1 from './Step1'
+import Step2 from './Step2'
+import Step3 from './Step3'
+import { connect } from 'react-redux'
+import { clear } from '../../ducks/reducer'
 
-export default class Wizard extends Component {
-  constructor() {
-    super()
-    this.state = {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: 0
-    }
-  }
-
-  addHouse = () => {
-    axios
-      .post('/api/houses', this.state)
-      .then(res => {
-        this.props.history.push('/')
-      })
-      .catch(err => console.log(err))
-  }
-
-  handleChange = e => {
-    const { name, value } = e.target
-    this.setState({
-      [name]: value
-    })
-  }
-
+class Wizard extends Component {
   render() {
     return (
       <div className='wiz panel'>
         <div className='sub-header'>
           <h2>Add New Listing</h2>
           <Link to='/'>
-            <button>Cancel</button>
+            <button onClick={this.props.clear}>Cancel</button>
           </Link>
         </div>
-        <div className="input-container">
-          <p>Property Name</p>
-          <input autoComplete='off' name='name' type="text" onChange={this.handleChange} />
-          <p>Address</p>
-          <input autoComplete='off' name='address' type="text" onChange={this.handleChange} />
-          <p>City</p>
-          <input autoComplete='off' name='city' type="text" onChange={this.handleChange} />
-          <p>State</p>
-          <input autoComplete='off' name='state' type="text" onChange={this.handleChange} />
-          <p>Zip</p>
-          <input autoComplete='off' name='zip' type="number" onChange={this.handleChange} />
-        </div>
-        <button onClick={this.addHouse} >Complete</button>
+        <Route path='/wizard/step1' component={Step1} />
+        <Route path='/wizard/step2' component={Step2} />
+        <Route path='/wizard/step3' component={Step3} />
       </div>
     )
   }
 }
+
+export default connect(null, { clear })(Wizard)
