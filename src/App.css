@@ -1,22 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Opens Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #afd4c0;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+  padding-top: 75px;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+header {
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #519872;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.panel {
+  width: 50vw;
+  background: #e5f4ec;
+  text-align: center;
+  height: 100vh;
+  margin-left: 25vw;
+}
+
+.sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+button {
+  border: none;
+}
+
+input {
+  border-radius: 2px;
+  border: 1px solid green;
+}
+
+.prop-container {
+  border-top: 1px solid black;
+  margin: 0 20px 10px;
 }
